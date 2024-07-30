@@ -11,6 +11,9 @@ This project is a real-time transcription application that uses the OpenAI Whisp
 to convert speech input into text output. It can be used to transcribe both live audio
 input from microphone and pre-recorded audio files.
 
+## Justin's New Feature
+- For the web demo, please see [WhisperLive-WebDemo/web-demo](https://github.com/JustinHsu1019/WhisperLive-WebDemo/tree/main/web-demo)
+
 ## Installation
 - Install PyAudio and ffmpeg
 ```bash
