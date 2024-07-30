@@ -7,7 +7,7 @@
 ```python
 segments = []
 if len(self.transcript) >= self.send_last_n_segments:
-  # 在這邊將被丟棄的 segments 存於某處 (前端 local storage / 後端 txt, db -> 需能保留訊息於 Frontend text box)
+  # 在這邊將被丟棄的 segments 存於某處 (前端 local storage / 後端 txt, db -> 需能保留完整訊息於 Frontend text box)
   segments = self.transcript[-self.send_last_n_segments:].copy()
 else:
   segments = self.transcript.copy()
