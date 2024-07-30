@@ -12,7 +12,13 @@ to convert speech input into text output. It can be used to transcribe both live
 input from microphone and pre-recorded audio files.
 
 ## Justin's New Feature
+
 - For the web demo, please see [WhisperLive-WebDemo/web-demo](https://github.com/JustinHsu1019/WhisperLive-WebDemo/tree/main/web-demo)
+
+<h2 align="center">
+  <a href="https://www.youtube.com/watch?v=FKH5iNP2ZKk"><img
+src="https://img.youtube.com/vi/FKH5iNP2ZKk/0.jpg" style="background-color:rgba(0,0,0,0);" height=300 alt="WebDemo"></a>
+</h2>
 
 ## Installation
 - Install PyAudio and ffmpeg
