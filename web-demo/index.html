@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <br>
+    <br>
+    <div class="container text-center">
+        <div class="header">
+            <img src="./icon128.png" alt="Icon" />
+            <h1>Real-time</h1>
+        </div>
+        <div class="button-container">
+            <button class="btn btn-primary" id="startCapture">Start Capture</button>
+            <button class="btn btn-secondary" id="stopCapture" disabled>Stop Capture</button>
+        </div>
+        <div class="form-check checkbox-container" hidden>
+            <input type="checkbox" class="form-check-input" id="useServerCheckbox">
+            <label class="form-check-label" for="useServerCheckbox">Use Collabora Whisper-Live Server</label>
+        </div>
+        <div class="form-check checkbox-container" hidden>
+            <input type="checkbox" class="form-check-input" id="useVadCheckbox">
+            <label class="form-check-label" for="useVadCheckbox">Use Voice Activity Detection</label>
+        </div>
+        <div class="form-group dropdown-container">
+            <label for="languageDropdown">Select Language:</label>
+            <select id="languageDropdown" class="form-control">
+                <option value="">Auto detect</option>
+                <option value="zh" selected>Chinese</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+        <div class="form-group dropdown-container" hidden>
+            <label for="taskDropdown">Select Task:</label>
+            <select id="taskDropdown" class="form-control">
+                <option value="">Select Task</option>
+                <option value="transcribe" selected>transcribe</option>
+                <option value="translate">translate</option>
+            </select>
+        </div>
+        <div class="form-group dropdown-container">
+            <label for="modelSizeDropdown">Select Model:</label>
+            <select id="modelSizeDropdown" class="form-control">
+                <option value="">Select model</option>
+                <option value="small" selected>Small</option>
+                <option value="medium">Medium</option>
+            </select>
+        </div>
+
+        <div id="transcriptionBox" class="transcription-box border p-3 mt-3"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="popup.js"></script>
+</body>
+
+</html>
