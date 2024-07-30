@@ -1,8 +1,24 @@
 # 2024/07/30 TODO
 
 ## 1. 解決長期紀錄不保存 (吃字問題)
-- 於前端 Chunk 保存，重疊文字處須再考慮作法
-- 改作者原始碼，解決 Buffer 長度回傳 Websocket 只有部分內容問題
+
+#### WhisperLive-WebDemo/whisper_live/server.py
+
+```python
+segments = []
+if len(self.transcript) >= self.send_last_n_segments:
+  # 在這邊將被丟棄的 segments 存於某處 (前端 local storage / 後端 txt, db -> 需能保留訊息於 Frontend text box)
+  segments = self.transcript[-self.send_last_n_segments:].copy()
+else:
+  segments = self.transcript.copy()
+if last_segment is not None:
+  segments = segments + [last_segment]
+return segments
+```
 
 ## 2. Stop Capture 按鈕，確定作用正確
 - 目前點擊後分頁 Microphone 並未停止監聽
+
+## 3. 語言偵測頻繁出錯 (不斷出現 韓文 / 英文)
+
+## 4. 不斷轉錄出 "字幕來自XXX / 點讚轉發XXX"
