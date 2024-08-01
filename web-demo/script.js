@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const languageDropdown = document.getElementById('languageDropdown');
     const taskDropdown = document.getElementById('taskDropdown');
     const modelSizeDropdown = document.getElementById('modelSizeDropdown');
-    let selectedLanguage = null;
+    let selectedLanguage = languageDropdown.value;
     let selectedTask = taskDropdown.value;
     let selectedModelSize = modelSizeDropdown.value;
     let socket;
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (startButton.disabled) return;
 
         let host = "localhost";
-        let port = "8080";
+        let port = "9090";
 
         console.log("Starting capture with settings:", {
             host, port, selectedLanguage, selectedTask, selectedModelSize, useVad: useVadCheckbox.checked
@@ -121,15 +121,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function handleSocketMessage(data) {
+        console.log("message:", data);
         if (data.status === "WAIT") {
             showPopup(`Estimated wait time ~ ${Math.round(data.message)} minutes`);
             stopCapture();
         } else if (data.message === "DISCONNECT") {
             toggleCaptureButtons(false);
             stopCapture();
+            window.cachedSegments = undefined
+        } else if (data.message === "SERVER_READY") {
+            window.cachedSegments = undefined
+        } else if (data.message === undefined) {
+            updateCachedSegments(data.segments)
+        }
+    }
+
+    function updateCachedSegments(segments) {
+        if (window.cachedSegments === undefined) {
+            window.cachedSegments = segments;
         } else {
-            console.log("Transcription result:", data);
-            displayTranscription(data.segments.map(segment => segment.text).join(' '));
+            const firstSegmentStart = parseFloat(segments[0].start)
+            window.cachedSegments = window.cachedSegments.filter(segment => parseFloat(segment.end) < firstSegmentStart).concat(segments);
+        }
+        if (window.cachedSegments !== undefined) {
+            displayTranscription(window.cachedSegments.map(segment => segment.text).join(' '));
         }
     }
 
