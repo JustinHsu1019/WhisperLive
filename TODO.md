@@ -20,5 +20,6 @@ return segments
 - 目前點擊後分頁 Microphone 並未停止監聽
 
 ## 3. 語言偵測頻繁出錯 (不斷出現 韓文 / 英文)
+- 參數: initial_prompt "繁體中文" 可否解決？
 
 ## 4. 不斷轉錄出 "字幕來自XXX / 點讚轉發XXX"
