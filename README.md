@@ -14,6 +14,7 @@ input from microphone and pre-recorded audio files.
 ## Justin's New Feature
 
 - For the web demo, please see [WhisperLive-WebDemo/web-demo](https://github.com/JustinHsu1019/WhisperLive-WebDemo/tree/main/web-demo)
+- For the finetune framework, please see [WhisperLive-WebDemo/Whisper-Finetune](https://github.com/JustinHsu1019/Whisper-Finetune)
 - TODO: [WhisperLive-WebDemo/TODO.md](https://github.com/JustinHsu1019/WhisperLive-WebDemo/blob/main/TODO.md)
 
 <h2 align="center">
