@@ -1,0 +1,3 @@
+[submodule "Whisper-Finetune"]
+	path = Whisper-Finetune
+	url = https://github.com/JustinHsu1019/Whisper-Finetune
